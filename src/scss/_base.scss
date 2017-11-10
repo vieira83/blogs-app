@@ -1,0 +1,13 @@
+html,
+body,
+body > .container {
+  height: 100%;
+}
+
+body {
+  > .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
