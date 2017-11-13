@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/39499922/react-router-tabs-component-mounting-before-data-is-fetched
+
+https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
+
+https://github.com/ReactTraining/react-router/blob/v3/examples/passing-props-to-children/app.js
