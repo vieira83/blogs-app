@@ -9,11 +9,11 @@ export function loadPostsSuccess(posts) {
 }
 
 export function requestPost(post) {
-  return {type: types.GET_POST, post};
+  return {type: types.GET_POST};
 }
 
-export function loadPostSuccess(id) {
-  return {type: types.GET_POST_SUCCESS, id};
+export function loadPostSuccess(post) {
+  return {type: types.GET_POST_SUCCESS, post};
 }
 
 export function loadPostsFromAPI() {
@@ -31,11 +31,11 @@ export function loadPostsFromAPI() {
 export function getPost(id) {
   debugger;
   return (dispatch) => {
-    return state.posts.filter(post => {
-      if (post.id === id) {
-        dispatch(loadPostSuccess(item));
-        return post;
-      }
+    return posts.get(id).then(items => {
+      debugger;
+      dispatch(loadPostSuccess(items));
+    }).catch(error => {
+      throw(error);
     });
   };
 }

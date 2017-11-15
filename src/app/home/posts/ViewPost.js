@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import __html from "./list.html";
 import { connect } from 'react-redux';
 import {
-  loadPostSuccess
+  getPost
 } from '../../../../store/actions/postActions';
 
 class ViewPost extends React.Component {
@@ -49,8 +49,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
   // You can now say this.props.createBook
-    getPost: (id) => dispatch(loadPostSuccess(id))
+    getPost: (id) => dispatch(getPost(id))
   }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(ViewPost);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewPost);

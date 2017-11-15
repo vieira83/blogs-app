@@ -40,7 +40,7 @@ export function  PostReducer(state = initialState, action) {
     case types.GET_POST_SUCCESS:
       return Object.assign({}, state, {
         loading: false,
-        item: action.post,
+        items: action.post,
         lastUpdated: action.receivedAt
       })
     default:
