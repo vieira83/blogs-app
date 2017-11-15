@@ -1,0 +1,4 @@
+export const REQUEST_POSTS = 'REQUEST_POSTS';
+export const LOAD_POSTS_SUCCESS = 'LOAD_POSTS_SUCCESS';
+export const GET_POST = 'GET_POST';
+export const GET_POST_SUCCESS = 'GET_POST_SUCCESS';

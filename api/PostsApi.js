@@ -9,4 +9,13 @@ export default  class Posts {
       return error;
     });
   }
+
+  static get(id) {
+    return fetch('http://localhost:9001/posts')
+    .then(response => response.json())
+    .then(posts =>  posts.filter(post => post.id === parseInt(id,10))[0])
+    .catch(error => {
+      return error;
+    });
+  }
 }
