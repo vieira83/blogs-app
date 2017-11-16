@@ -2,8 +2,7 @@
 import * as types from '../actions/actionTypes';
 const initialState = {
   items:[],
-  item:{},
-  loading: false
+  loading: true
 }
 
 //define a reducer with an initialized state action
@@ -17,11 +16,12 @@ export  function  PostsReducer(state = initialState, action) {
       return Object.assign({}, state, {
         loading: true,
       })
+    case types.RESET_POSTS:
+      return state=initialState
     case types.LOAD_POSTS_SUCCESS:
-      return Object.assign({}, state, {
-        loading: false,
-        items: action.posts,
-        lastUpdated: action.receivedAt
+        return Object.assign({}, state, {
+          loading: false,
+          items: action.posts
       })
     default:
       return state

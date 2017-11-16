@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import {
   fetchPosts,
   loadPostsFromAPI
-} from '../../../store/actions/postActions';
+} from '../../../store/actions/postsActions';
 
   class Home extends React.Component {
   constructor(props) {
@@ -36,8 +36,13 @@ import {
 
   render() {
     return <div>
-        <div dangerouslySetInnerHTML={{__html}} />DGsgfds
-        {this.props.posts.map(post => this.listPosts(post))}
+        { this.props.loading
+          ? <h2>Loading...</h2>
+          : <div>
+            <div dangerouslySetInnerHTML={{__html}} />
+              {this.props.posts.map(post => this.listPosts(post))}
+            </div>
+        }
     </div>
   }
 }
