@@ -2,6 +2,7 @@
 import * as types from '../actions/actionTypes';
 const initialState = {
   items:[],
+  item:{},
   loading: false
 }
 
@@ -40,7 +41,7 @@ export function  PostReducer(state = initialState, action) {
     case types.GET_POST_SUCCESS:
       return Object.assign({}, state, {
         loading: false,
-        items: action.post,
+        item: action.post,
         lastUpdated: action.receivedAt
       })
     default:
