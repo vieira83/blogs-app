@@ -11,7 +11,17 @@ export default  class Comments {
   }
 
   static createComment(data) {
-    return fetch('http://localhost:9001/posts')
+    return fetch('http://localhost:9001/posts',{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstParam: 'yourValue',
+        secondParam: 'yourOtherValue',
+      })
+    })
     .then(response => response.json())
     .then(posts =>  posts.filter(post => post.id === parseInt(id,10))[0])
     .catch(error => {

@@ -5,6 +5,7 @@ import __html from "./list.html";
 import { connect } from 'react-redux';
 import { resetPost, getPost } from '../../../../store/actions/postAction';
 import ViewComments from './ViewComments';
+import FormComment from './formComment';
 
 class ViewPost extends React.Component {
   constructor(props) {
@@ -30,9 +31,10 @@ class ViewPost extends React.Component {
               <br/>
               <span>Date Published: {this.props.post.publish_date} </span><br/>
               <span>Author: {this.props.post.author} </span>
-              
+
           </div>
             { this.props.post.id && !this.props.loading? <ViewComments postID={this.props.post.id } /> : null }
+            <FormComment />
     </div>
   }
 }
