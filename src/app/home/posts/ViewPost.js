@@ -35,7 +35,7 @@ class ViewPost extends React.Component {
 
           </div>
             { this.props.post.id && !this.props.loading? <ViewComments postID={this.props.post.id } /> : null }
-            <FormComment />
+            <FormComment postID={this.props.post.id}/>
     </div>
   }
 }

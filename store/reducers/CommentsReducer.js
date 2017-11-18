@@ -21,6 +21,12 @@ export  function CommentsReducer(state = initialState, action) {
         items: action.comments,
         lastUpdated: action.receivedAt
       })
+      case types.SAVE_COMMENT_SUCCESS:
+        return Object.assign({}, state, {
+          loading: false,
+          items: state.items.concat(action.comment),
+          lastUpdated: action.receivedAt
+        })
     case types.RESET_COMMENTS:
       return state = initialState;
     default:

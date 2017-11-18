@@ -8,6 +8,10 @@ export function loadCommentsSuccess(comments) {
   return {type: types.LOAD_COMMENTS_SUCCESS, comments};
 }
 
+export function saveCommentsSuccess(comment) {
+  return {type: types.SAVE_COMMENT_SUCCESS, comment};
+}
+
 export function resetComments() {
   return {type: types.RESET_COMMENTS};
 }
@@ -29,7 +33,7 @@ export function postComment(data) {
   return (dispatch) => {
     return comments.createComment(data).then(items => {
       debugger;
-      dispatch(loadCommentsSuccess(items));
+      dispatch(saveCommentsSuccess(items));
     }).catch(error => {
       throw(error);
     });
