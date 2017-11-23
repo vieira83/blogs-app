@@ -6,4 +6,6 @@
 @import "~bootstrap/scss/bootstrap.scss"; // v4: https://github.com/twbs/bootstrap
 
 // Manifest
+@import "scss/variables";
 @import "scss/base";
+@import "scss/typography";

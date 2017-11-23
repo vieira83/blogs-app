@@ -5,6 +5,8 @@ body > .container {
 }
 
 body {
+  background-color: $light-grey;
+  
   > .container {
     display: flex;
     flex-direction: column;

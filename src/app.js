@@ -4,7 +4,9 @@
 
 // Global application styles
 import "src/app.scss";
+import 'bootstrap/dist/css/bootstrap.css';
 
+import { Button, Panel } from 'react-bootstrap';
 // React
 import React from "react";
 import {render} from "react-dom";

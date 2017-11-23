@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 // Render static HTML:
 import __html from "./home.html";
+import { Button, Panel } from 'react-bootstrap';
 import PostsApi from "../../../api/PostsApi";
 import {Router, Link} from 'react-router';
 import { connect } from 'react-redux';
@@ -21,11 +22,13 @@ import {
   listPosts (post) {
     return (
       <div key={post.id}>
+        <Panel header={post.title} bsStyle="info">
+          {post.description}
           <Link to={`/posts/${post.id}`} className="post-link">
-            {post.title}
-          </Link>
-          <p>{post.description}</p>
-          <hr/>
+               &nbsp; &nbsp; View >>
+          </Link><br/>
+
+        </Panel>
       </div>
     )
   }
