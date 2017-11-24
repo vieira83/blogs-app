@@ -14,10 +14,8 @@ export function resetPost() {
 }
 
 export function getPost(id) {
-  debugger;
   return (dispatch) => {
     return posts.get(id).then(items => {
-      debugger;
       dispatch(loadPostSuccess(items));
     }).catch(error => {
       throw(error);

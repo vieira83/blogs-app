@@ -20,23 +20,28 @@ class ViewPost extends React.Component {
     this.props.resetPost();
   }
   render() {
-    return <div>
-          <div dangerouslySetInnerHTML={{__html}} />
-              <h2>{this.props.post.title}</h2>
-              <hr/>
-              <h3>{this.props.post.description} </h3>
-              <div>
-                <p dangerouslySetInnerHTML={{__html: this.props.post.content}} />
-              </div>
-              <div>
-              <br/>
-              <span>Date Published: {this.props.post.publish_date} </span><br/>
-              <span>Author: {this.props.post.author} </span>
-
+    return (
+      <div className="post-details">
+        <div>
+          <h2 className="title">{this.props.post.title}</h2>
+          <div className="author-info">
+            <span className="author">By {this.props.post.author} </span>
+            <span className="published-date">On {this.props.post.publish_date} </span>
           </div>
-            { this.props.post.id && !this.props.loading? <ViewComments postID={this.props.post.id } /> : null }
-            <FormComment postID={this.props.post.id}/>
-    </div>
+
+          <h6 className="description">{this.props.post.description} </h6>
+          <div className="content">
+            <p dangerouslySetInnerHTML={{__html: this.props.post.content}} />
+          </div>
+        </div>
+        {
+          this.props.post.id && !this.props.loading
+          ? <ViewComments postID={this.props.post.id } />
+          : null
+        }
+        <FormComment postID={this.props.post.id} className="comments"/>
+      </div>
+    )
   }
 }
 

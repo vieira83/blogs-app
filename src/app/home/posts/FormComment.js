@@ -3,6 +3,7 @@ import { Field, reduxForm , SubmissionError} from 'redux-form';
 import PropTypes from 'prop-types';
 // Render static HTML:
 import { connect } from 'react-redux';
+import validate from './validate';
 import { postComment } from '../../../../store/actions/commentsActions';
 
 class CommentForm extends React.Component {
@@ -11,48 +12,67 @@ class CommentForm extends React.Component {
     this.submitForm = this.submitForm.bind(this);
   }
 
+  wait (time) {
+    return new Promise((resolve, reject) => setTimeout(resolve, time));
+  }
+
   submitForm ({content='', user=''}) {
-    debugger;
     const {postID} = this.props;
-    let error= false;
-    if (content.trim() === ''){
-      error = true;
-    }
-    if (user.trim() === ''){
-      error = true;
-    }
-    alert(content);
-    if (error) {
-      throw new SubmissionError("REQUIRED FIELD");
-    }else {
-      debugger;
-      this.props.postComment({content,user, postID});
-    }
+
+    return this.wait(1000) // simulate server latency
+    .then(() => {
+      // let errors = this.validate(content, user);
+      if (JSON.stringify(errors)!=='{}') {
+        // throw new SubmissionError(errors);
+        throw new SubmissionError(errors);
+      }else {
+        // this.props.postComment({content,user, postID});
+      }
+    })
+    .catch(response => {
+      throw new SubmissionError(errors);
+    });
   }
 
   RenderField (field) {
-    return(<div className="input-row">
-      <input {...field.input} type={field.type} />
-      {field.meta.touched && field.meta.error &&
-        <span className="error">{field.meta.error}</span>}
+    return(<div className="input-row form-group">
+      <input className="form-control" {...field.input} type={field.type} />
+      {
+        field.meta.touched && field.meta.error &&
+        <div className="help-block"><span className="error">{field.meta.error} </span></div>
+      }
+    </div>)
+  }
+
+  RenderTextAreaField (field) {
+    return(<div className="input-row form-group">
+      <textarea className="form-control" {...field.input} type={field.type} />
+      {
+        field.meta.touched && field.meta.error &&
+        <div className="help-block"><span className="error">{field.meta.error}</span></div>
+      }
     </div>)
   }
 
   render () {
-    const {handleSubmit, pristine, reset, submitting} = this.props
+    const {handleSubmit, error, pristine, reset, submitting} = this.props
     const required = value => (value ? undefined : 'Required');
     return (
-      <div>
-        <hr/>
-       <h5>Submit a Comment</h5>
-        <form onSubmit={handleSubmit(this.submitForm)}>
-        <label htmlFor="content">Comment</label>
-        <Field name='content' component={this.RenderField} /><br/>
-          <label htmlFor="user">User</label>
-        <Field name='user' component='input' type='text' placeholder="name" validate={required}/><br/><br/>
-        <button type='submit' type="submit" disabled={submitting}>Submit</button><br/>
+      <div className="form-comment card card-outline-secondary">
+       <div className="card-header">
+            <h5 className="mb-0">Submit Comment</h5>
+        </div>
+        <div className="card-block">
+          <form className="form" role="form" onSubmit={handleSubmit(this.submitForm)}>
 
-        </form>
+            <label htmlFor="user">User</label>
+          <Field name="user" component={this.RenderField}  type='text' placeholder="name" validate={required}/>
+          <label htmlFor="content">Comment</label>
+          <Field name="content" component={this.RenderTextAreaField} validate={required}/>
+          {error && <strong>{error}</strong>}
+          <button className="btn btn-success btn-lg" type='submit' type="submit" disabled={pristine || submitting}>Submit</button>
+          </form>
+        </div>
       </div>
     )
   }
@@ -76,16 +96,16 @@ const mapStateToProps = (state) => {
     }
   }
 };
+
 const CommentReduxForm = reduxForm({
-  form: 'addComment',
-  fields: ['content', 'user']
+  form: 'CommentForm',
+  validate
 })(CommentForm);
 
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
   return {
   // You can now say this.props.createBook
-
     postComment: data => dispatch(postComment(data))
   }
 };

@@ -89,58 +89,6 @@
       "slug": "blog-post-10",
       "description": "Natum integre tractatos eu duo, ut falli scriptorem qui.",
       "content": "<p>Natum integre tractatos eu duo, ut falli scriptorem qui. Probo inermis ad nec, petentium inciderint mei in.</p> <p>Quidam inermis detraxit per ea. Vix etiam eirmod ut, sea dolor appellantur te. Te quis dicit delicata eum, in has convenire interesset.</p>"
-    },
-    {
-      "firstParam": "yourValue",
-      "secondParam": "yourOtherValue",
-      "id": 11
-    },
-    {
-      "firstParam": "yourValue",
-      "secondParam": "yourOtherValue",
-      "id": 12
-    },
-    {
-      "firstParam": "yourValue",
-      "secondParam": "yourOtherValue",
-      "id": 13
-    },
-    {
-      "postId": 2,
-      "parent_id": null,
-      "user": "VLAD",
-      "date": "2016-03-16",
-      "content": "MOOOO",
-      "id": 14
-    },
-    {
-      "postId": 2,
-      "parent_id": null,
-      "user": "VLAD",
-      "date": "2016-03-16",
-      "content": "MOOOO",
-      "id": 15
-    },
-    {
-      "parent_id": null,
-      "user": "VLAD",
-      "date": "2016-03-16",
-      "content": "MOOOO",
-      "id": 16
-    },
-    {
-      "parent_id": null,
-      "user": "VLAD",
-      "date": "2016-03-16",
-      "content": "MOOOO",
-      "id": 17
-    },
-    {
-      "parent_id": null,
-      "user": "VLAD",
-      "date": "2016-03-16",
-      "content": "MOOOO",
-      "id": 18
     }
   ],
   "comments": [
@@ -202,80 +150,10 @@
     },
     {
       "postId": "1",
-      "user": "VLADIm",
+      "user": "a",
       "date": "2016-03-16",
-      "content": "MOFinalOOO",
+      "content": "as",
       "id": 8
-    },
-    {
-      "postId": "1",
-      "user": "VLADIm",
-      "date": "2016-03-16",
-      "content": "MOFinalOOO",
-      "id": 9
-    },
-    {
-      "postId": "2",
-      "user": "VLADIm",
-      "date": "2016-03-16",
-      "content": "MOFinalOOO",
-      "id": 10
-    },
-    {
-      "postId": "2",
-      "user": "VLADIm",
-      "date": "2016-03-16",
-      "content": "MOFinalOOO",
-      "id": 11
-    },
-    {
-      "postId": "2",
-      "user": "VLADIm",
-      "date": "2016-03-16",
-      "content": "MOFinalOOO",
-      "id": 12
-    },
-    {
-      "postId": "2",
-      "user": "LOOA",
-      "date": "2016-03-16",
-      "content": "LOPS",
-      "id": 13
-    },
-    {
-      "postId": "2",
-      "user": "let",
-      "date": "2016-03-16",
-      "content": "VLAdimir Fernandes",
-      "id": 14
-    },
-    {
-      "postId": "2",
-      "user": "sfsd",
-      "date": "2016-03-16",
-      "content": "Vladi Silv",
-      "id": 15
-    },
-    {
-      "postId": "2",
-      "user": "sfsd",
-      "date": "2016-03-16",
-      "content": "Vladi Silv",
-      "id": 16
-    },
-    {
-      "postId": "2",
-      "user": "vladimir",
-      "date": "2016-03-16",
-      "content": "LOnpessd da silva",
-      "id": 17
-    },
-    {
-      "postId": "2",
-      "user": "vladimir",
-      "date": "2016-03-16",
-      "content": "LOnpessd da silva",
-      "id": 18
     }
   ]
 }

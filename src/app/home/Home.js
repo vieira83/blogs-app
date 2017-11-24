@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 // Render static HTML:
 import __html from "./home.html";
-import { Button, Panel } from 'react-bootstrap';
 import PostsApi from "../../../api/PostsApi";
 import {Router, Link} from 'react-router';
 import { connect } from 'react-redux';
@@ -21,14 +20,14 @@ import {
 
   listPosts (post) {
     return (
-      <div key={post.id}>
-        <Panel header={post.title} bsStyle="info">
-          {post.description}
+      <div key={post.id} className="post-info">
+        <div className="post-content">
           <Link to={`/posts/${post.id}`} className="post-link">
-               &nbsp; &nbsp; View >>
-          </Link><br/>
-
-        </Panel>
+            <h4 className="title">{post.title}</h4>
+            <h5 dangerouslySetInnerHTML={{__html:post.description}} />
+            <div dangerouslySetInnerHTML={{__html:post.content}} className="truncate" />
+          </Link>
+        </div>
       </div>
     )
   }
@@ -38,11 +37,11 @@ import {
   }
 
   render() {
-    return <div>
+    return <div className="homepage">
         { this.props.loading
           ? <h2>Loading...</h2>
-          : <div>
-            <div dangerouslySetInnerHTML={{__html}} />
+          : <div className="posts-container">
+              <div dangerouslySetInnerHTML={{__html}} />
               {this.props.posts.map(post => this.listPosts(post))}
             </div>
         }

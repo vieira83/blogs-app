@@ -17,10 +17,8 @@ export function resetComments() {
 }
 
 export function loadCommentsFromAPI(postID) {
-  debugger;
   return (dispatch) => {
     return comments.getComments(postID).then(items => {
-      debugger;
       dispatch(loadCommentsSuccess(items));
     }).catch(error => {
       throw(error);

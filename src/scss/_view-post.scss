@@ -1,0 +1,38 @@
+.post-details {
+  background-color: #fff;
+  padding: 2rem;
+
+  .title {
+    font-size: 2.09434rem;
+    margin-bottom: 1.2rem;
+    line-height: 2.8rem;
+    margin-bottom: 1rem;
+    color: darkcyan;
+  }
+
+  .author-info {
+    margin-bottom: 1rem;
+    font-size: 12px;
+
+    .author {
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 600;
+      color: #393D51;
+    }
+
+    .published-date {
+      color: #A8ACC2;
+    }
+  }
+
+  .content {
+    margin: 1rem auto;
+    font-size: 16px;
+    color: #555;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 160%;
+  }
+
+}

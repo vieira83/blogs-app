@@ -10,7 +10,6 @@ export default class App extends React.Component {
     return (
       <div>
         <Navigation />
-
         <div className="mx-3">
           {this.props.children}
         </div>

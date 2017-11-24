@@ -1,0 +1,28 @@
+.comment-info {
+  // border-top: 1px solid #A8ACC2;
+  // margin: 1rem;
+  background: none repeat scroll 0 0 #F6F6F6;
+  border-top: 5px solid #FFD700;
+  padding: 15px;
+  margin: 0 auto;
+  .user-info {
+    font-size: 14px;
+
+    .user {
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 600;
+      color: #393D51;
+    }
+
+    .date {
+      color: #A8ACC2;
+    }
+  }
+  .content {
+    margin: 0 auto 1rem auto;
+    .comment-text {
+
+    }
+  }
+}

@@ -10,10 +10,8 @@ export function loadPostsSuccess(posts) {
 }
 
 export function loadPostsFromAPI() {
-  debugger;
   return (dispatch) => {
     return posts.getPosts().then(items => {
-      debugger;
       dispatch(loadPostsSuccess(items));
     }).catch(error => {
       throw(error);

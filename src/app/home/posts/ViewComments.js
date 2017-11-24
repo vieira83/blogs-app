@@ -15,18 +15,17 @@ class ViewComments extends React.Component {
 
   listComments (comment) {
     return (
-      <div key={comment.id}>
-          <hr/>
-          <p>{comment.content}</p>
-          <span>{comment.user}</span><br/>
-          <span>{comment.date}</span>
-
+      <div key={comment.id} className="comment-info">
+          <div className="user-info">
+            <span className="user">By {comment.user}, </span>
+            <span className="date">On {comment.date}</span>
+          </div>
+          <p className="comment-text content">{comment.content}</p>
       </div>
     )
   }
 
   componentDidMount() {
-    debugger;
     const { postID } = this.props
     this.props.getComments(postID);
   }
@@ -36,7 +35,7 @@ class ViewComments extends React.Component {
   render() {
     return <div>
           <br/>
-          <h4> COMMENTS </h4>
+          <h5> COMMENTS </h5>
           {this.props.comments.map( comment => this.listComments(comment) )}
     </div>
   }

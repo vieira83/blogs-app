@@ -5,11 +5,25 @@ body > .container {
 }
 
 body {
-  background-color: $light-grey;
-  
+  background-color: $light-gray !important;
+
   > .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  a {
+    color: $link-color;
+    
+    &:hover {
+      color: darken($link-color,10%);
+    }
+  }
+  p {
+    color: #555;
+  }
+  h1,h2,h3,h4,h5 {
+    color: #444;
   }
 }
