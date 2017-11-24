@@ -5,8 +5,8 @@ export class Navigation extends React.Component {
 
   render() {
     let isActive = {
-      home: (location.pathname ==="/" || location.pathname ==="/home") ? "active" : "",
-      about: location.pathname ==="/about" ? "active" : ""
+      home: (location.pathname === "/" || location.pathname === "/home") ? "active" : "",
+      about: location.pathname === "/about" ? "active" : ""
     }
     return (
       <nav className="navbar navbar-expand-sm navbar-inverse ml-auto mb-5">

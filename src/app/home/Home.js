@@ -15,7 +15,6 @@ import {
   class Home extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   listPosts (post) {
@@ -66,7 +65,7 @@ const mapStateToProps = (state) => {
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
   return {
-  // You can now say this.props.createBook
+    // You can now say this.props.createBook
     fetchPosts: () => dispatch(loadPostsFromAPI())
   }
 };

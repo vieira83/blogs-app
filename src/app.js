@@ -18,7 +18,6 @@ import Root from "./Router";
 import configStore from '../store/configStore';
 
 const store = configStore();
-debugger;
 render((
   <Root store={store} />
 ), document.getElementById("root"));

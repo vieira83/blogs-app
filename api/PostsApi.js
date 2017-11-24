@@ -2,8 +2,10 @@ export default  class Posts {
   // this.postsUrl = 'http://localhost:9001/posts';
 
   static getPosts() {
-    return fetch('http://localhost:9001/posts').then(response => {
-      const posts = response.json();
+    return fetch('http://localhost:9001/posts')
+    .then(response => response.json())
+    .then(posts => {
+      posts.sort( (a,b) => new Date(a.publish_date).getTime()  - new Date(b.publish_date).getTime() );
       return posts.length > 10 ? posts.splice(0, 10) : posts;
     }).catch(error => {
       return error;
