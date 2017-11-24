@@ -4,9 +4,12 @@ const validate = (values)=> {
   if (!values.content || values.content.trim() === ''){
     errors.content = 'Enter a Comment';
   }
+
   if (!values.user || values.user.trim() === ''){
     errors.user = 'Enter your user name';
   }
+  // errors.content = 'Enter a Comment';
+  // errors.user = 'Enter your user name';
 
   return errors;
 }

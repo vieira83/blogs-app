@@ -15,7 +15,7 @@ body {
 
   a {
     color: $link-color;
-    
+
     &:hover {
       color: darken($link-color,10%);
     }
@@ -25,5 +25,16 @@ body {
   }
   h1,h2,h3,h4,h5 {
     color: #444;
+  }
+  nav li.active {
+    font-weight: 600;
+    border-bottom: 2px solid orange;
+    background-color: #555 !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    >a.nav-link {
+      background-color: #555 !important;
+      color: orange;
+    }
   }
 }

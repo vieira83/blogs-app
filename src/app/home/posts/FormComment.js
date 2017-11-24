@@ -19,58 +19,51 @@ class CommentForm extends React.Component {
   submitForm ({content='', user=''}) {
     const {postID} = this.props;
 
-    return this.wait(1000) // simulate server latency
-    .then(() => {
-      // let errors = this.validate(content, user);
-      if (JSON.stringify(errors)!=='{}') {
-        // throw new SubmissionError(errors);
-        throw new SubmissionError(errors);
-      }else {
-        // this.props.postComment({content,user, postID});
-      }
-    })
+    return this.props.postComment({content,user, postID})
     .catch(response => {
-      throw new SubmissionError(errors);
+      throw new SubmissionError(response.errors);
     });
   }
 
   RenderField (field) {
+    const has_error = field.meta.touched && field.meta.error;
     return(<div className="input-row form-group">
-      <input className="form-control" {...field.input} type={field.type} />
+      <input className={`form-control ${ has_error ? 'is-invalid' : ''}`} {...field.input} type={field.type} />
       {
         field.meta.touched && field.meta.error &&
-        <div className="help-block"><span className="error">{field.meta.error} </span></div>
+        <div className="help-block"><span className="error text-danger">{field.meta.error} </span></div>
       }
     </div>)
   }
 
   RenderTextAreaField (field) {
-    return(<div className="input-row form-group">
-      <textarea className="form-control" {...field.input} type={field.type} />
-      {
-        field.meta.touched && field.meta.error &&
-        <div className="help-block"><span className="error">{field.meta.error}</span></div>
-      }
-    </div>)
+    const has_error = field.meta.touched && field.meta.error;
+    return(
+      <div className="input-row form-group">
+        <textarea className={`form-control ${ has_error ? 'is-invalid' : ''}`}  {...field.input} type={field.type} />
+        {
+          field.meta.touched && field.meta.error &&
+          <div className="help-block"><span className="error text-danger">{field.meta.error}</span></div>
+        }
+      </div>
+    )
   }
 
   render () {
     const {handleSubmit, error, pristine, reset, submitting} = this.props
-    const required = value => (value ? undefined : 'Required');
     return (
       <div className="form-comment card card-outline-secondary">
        <div className="card-header">
-            <h5 className="mb-0">Submit Comment</h5>
+          <h5 className="mb-0">Submit Comment</h5>
         </div>
         <div className="card-block">
           <form className="form" role="form" onSubmit={handleSubmit(this.submitForm)}>
-
             <label htmlFor="user">User</label>
-          <Field name="user" component={this.RenderField}  type='text' placeholder="name" validate={required}/>
+          <Field name="user" component={this.RenderField}  type='text' placeholder="name" />
           <label htmlFor="content">Comment</label>
-          <Field name="content" component={this.RenderTextAreaField} validate={required}/>
-          {error && <strong>{error}</strong>}
-          <button className="btn btn-success btn-lg" type='submit' type="submit" disabled={pristine || submitting}>Submit</button>
+          <Field name="content" component={this.RenderTextAreaField} />
+            {error && <strong>{error}</strong>}
+          <button className="btn btn-success btn-lg" type='submit' type="submit" disabled={ pristine||submitting}>Submit</button>
           </form>
         </div>
       </div>
@@ -91,9 +84,7 @@ class CommentForm extends React.Component {
 // /Maps state from store to props
 const mapStateToProps = (state) => {
   return {
-    initialValues: {
-      props: [{}]
-    }
+    initialValues: state.values
   }
 };
 
