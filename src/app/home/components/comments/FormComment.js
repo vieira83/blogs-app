@@ -4,16 +4,12 @@ import PropTypes from 'prop-types';
 // Render static HTML:
 import { connect } from 'react-redux';
 import validate from './validate';
-import { postComment } from '../../../../store/actions/commentsActions';
+import { postComment } from '../../../../../store/actions/commentsActions';
 
 class CommentForm extends React.Component {
   constructor(props) {
     super(props);
     this.submitForm = this.submitForm.bind(this);
-  }
-
-  wait (time) {
-    return new Promise((resolve, reject) => setTimeout(resolve, time));
   }
 
   submitForm ({content='', user=''}) {
@@ -71,16 +67,6 @@ class CommentForm extends React.Component {
   }
 }
 
-// ViewPost.propTypes = {
-//   post: PropTypes.object.isRequired,
-//   loading: PropTypes.bool.isRequired
-// }
-
-// const FormCode = reduxForm({
-//   form: 'contact'
-// })(CommentForm);
-
-
 // /Maps state from store to props
 const mapStateToProps = (state) => {
   return {
@@ -96,7 +82,6 @@ const CommentReduxForm = reduxForm({
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
   return {
-  // You can now say this.props.createBook
     postComment: data => dispatch(postComment(data))
   }
 };

@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 // Our app
 import App       from "./app/App";
 import { About } from "./app/about/About";
-import  Home   from "./app/home/Home";
-import ViewPost from "./app/home/posts/ViewPost";
+import  Home   from "./app/home/components/Home";
+import ViewPost from "./app/home/components/posts/ViewPost";
 
 const Root = ({store}) => {
   return(

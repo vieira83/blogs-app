@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 // Render static HTML:
-import __html from "./list.html";
 import { connect } from 'react-redux';
 import {
   resetComments,
   loadCommentsFromAPI
-} from '../../../../store/actions/commentsActions';
+} from '../../../../../store/actions/commentsActions';
 
 class ViewComments extends React.Component {
   constructor(props) {
@@ -33,12 +32,13 @@ class ViewComments extends React.Component {
     this.props.resetComments();
    }
   render() {
-    return <div>
+    return (
+      <div>
           <br/>
           <h5> COMMENTS </h5>
           {this.props.comments.map( comment => this.listComments(comment) )}
     </div>
-  }
+  )}
 }
 
 ViewComments.propTypes = {
@@ -49,7 +49,6 @@ ViewComments.propTypes = {
 const mapStateToProps = (state) => {
   console.log(state);
   return {
-    // You can now say this.props.books
     comments: state.comments.items,
     loading: state.comments.loading
   }
@@ -58,7 +57,6 @@ const mapStateToProps = (state) => {
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
   return {
-  // You can now say this.props.createBook
     getComments: (id) => dispatch(loadCommentsFromAPI(id)),
     resetComments: () => dispatch(resetComments())
   }

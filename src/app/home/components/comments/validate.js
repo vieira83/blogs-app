@@ -8,8 +8,6 @@ const validate = (values)=> {
   if (!values.user || values.user.trim() === ''){
     errors.user = 'Enter your user name';
   }
-  // errors.content = 'Enter a Comment';
-  // errors.user = 'Enter your user name';
 
   return errors;
 }

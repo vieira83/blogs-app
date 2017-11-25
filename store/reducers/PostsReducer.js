@@ -5,9 +5,7 @@ const initialState = {
   loading: true
 }
 
-//define a reducer with an initialized state action
 export  function  PostsReducer(state = initialState, action) {
-  //eventually adding logic to handle create, update, and delete
   if(!action) {
     return state;
   }
@@ -29,7 +27,6 @@ export  function  PostsReducer(state = initialState, action) {
 }
 
 export function  PostReducer(state = initialState, action) {
-  //eventually adding logic to handle create, update, and delete
   if(!action) {
     return state;
   }

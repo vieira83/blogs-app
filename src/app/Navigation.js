@@ -9,9 +9,12 @@ export class Navigation extends React.Component {
       about: location.pathname === "/about" ? "active" : ""
     }
     return (
-      <nav className="navbar navbar-expand-sm navbar-inverse ml-auto mb-5">
-        <h1 className="navbar-brand mb-0">My app</h1>
-        <div className="navbar-collapse">
+      <nav className="navbar navbar-expand-md navbar-dark bg-faded mb-5">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-main-nav">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="navbar-collapse collapse" id="collapse-main-nav">
           <ul className="navbar-nav nav ml-auto">
             <li className={`nav-item ${isActive.home}`}><Link to={`/home`} className="nav-link" >Home</Link></li>
             <li className={`nav-item ${isActive.about}`}><Link to={`/about`} className="nav-link">About</Link></li>

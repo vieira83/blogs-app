@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 // Render static HTML:
 import __html from "./list.html";
 import { connect } from 'react-redux';
-import { resetPost, getPost } from '../../../../store/actions/postAction';
-import ViewComments from './ViewComments';
-import FormComment from './formComment';
+import { resetPost, getPost } from '../../../../../store/actions/postAction';
+import ViewComments from '../comments/ViewComments';
+import FormComment from '../comments/formComment';
 
 class ViewPost extends React.Component {
   constructor(props) {

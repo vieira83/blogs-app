@@ -9,7 +9,7 @@ import ReactTestUtils from "react-addons-test-utils";
 
 import { About } from "./About";
 
-xdescribe("About", function() {
+describe("About", function() {
   let component;
 
   beforeEach(function() {
@@ -18,7 +18,11 @@ xdescribe("About", function() {
     component = renderer.getRenderOutput();
   });
 
-  it("contains spec that returns true", function() {
-    expect(true).toBe(true);
+  it("About component contains title", function() {
+    var h1 = TestUtils.findRenderedDOMComponentWithTag(
+      component, 'h2'
+    );
+    expect(h1.getDOMNode().textContent).toEqual("About us");
+  });
   });
 });

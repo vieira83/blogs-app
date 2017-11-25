@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 
 // Render static HTML:
 import __html from "./home.html";
-import PostsApi from "../../../api/PostsApi";
+
+import PostsApi from "../../../../api/PostsApi";
 import {Router, Link} from 'react-router';
 import { connect } from 'react-redux';
 import {
   fetchPosts,
   loadPostsFromAPI
-} from '../../../store/actions/postsActions';
+} from '../../../../store/actions/postsActions';
 
   class Home extends React.Component {
   constructor(props) {
@@ -56,7 +57,6 @@ Home.propTypes = {
 // Maps state from store to props
 const mapStateToProps = (state) => {
   return {
-    // You can now say this.props.books
     posts: state.posts.items,
     loading: state.posts.loading
   }
@@ -65,7 +65,6 @@ const mapStateToProps = (state) => {
 // Maps actions to props
 const mapDispatchToProps = (dispatch) => {
   return {
-    // You can now say this.props.createBook
     fetchPosts: () => dispatch(loadPostsFromAPI())
   }
 };
